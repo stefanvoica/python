@@ -1,0 +1,38 @@
+n = int(input())
+v = [int (x) for x in input().split()]
+x0 = int(input())
+print ("P(x) =",end = "")
+if x0 <= 0:
+    v.sort(reverse = True)
+else:   v.sort()
+
+if x0 < 0:
+    st = 0
+    dr = n
+    for i in range (n, 0, -1):
+        if i%2 == 0:
+            if v[st] >= 0:
+                print (" +",end="")
+            else: print (" ",end = "")
+            print (f"{v[st]}x^{i}",end = "")
+            st += 1 
+        else:
+            if v[dr] >= 0:
+                print (" +",end="")
+            else: print (" ",end = "")
+            print (f"{v[dr]}x^{i}",end = "")
+            dr -= 1 
+    if v[dr] >= 0:
+        print (" +",end="")
+    else: print (" ",end = "")
+    print (f"{v[dr]}")
+else:
+    for i in range (n, -1, -1):
+        if v[i] >= 0:
+                print (" +",end="")
+        else: print (" ",end = "")
+        print (f"{v[i]}x^{i}",end = "")
+    if v[0] >= 0:
+        print (" +",end="")
+    else: print (" ",end = "")
+    print (f"{v[0]}")
